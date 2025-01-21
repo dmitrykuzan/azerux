@@ -1,0 +1,23 @@
+.socials {
+  gap: 1rem;
+  width: max-content;
+
+  &__title {
+    text-align: start;
+
+    @media (max-width: em(1024)) {
+      text-align: center;
+    }
+  }
+
+  &__list {
+    gap: 2rem;
+  }
+
+  &__link {
+    img {
+      flex-shrink: 0;
+      max-width: 3rem;
+    }
+  }
+}

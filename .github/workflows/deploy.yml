@@ -1,0 +1,91 @@
+name: Build and Publish Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git. Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Docker. Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GIT_REGISTRY_TOKEN }}
+
+      - name: Docker. Build and push Docker image
+        id: push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          file: .docker/node/Dockerfile
+          tags: |
+            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{ github.sha }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Git. Checkout repository
+        uses: actions/checkout@v2
+
+      - name: SSH. Create variables
+        id: vars 
+        run: |
+          BRANCH=$(echo ${GITHUB_REF##*/} | tr a-z A-Z)
+          echo "::set-output name=SSH_HOST::SSH_HOST_$BRANCH"
+          echo "::set-output name=SSH_PRIVATE_KEY::SSH_PRIVATE_KEY_$BRANCH"
+          echo "::set-output name=SSH_USERNAME::SSH_USERNAME_$BRANCH"
+          echo "::set-output name=SSH_PORT::SSH_PORT_$BRANCH"
+          echo "::set-output name=BRANCH::$BRANCH"
+
+      - name: SSH. Docker. Update docker stack's file
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          path: docker-compose.yml
+          remote_path: ${{ secrets.DOCKER_STACK_PATH }}
+          remote_host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          remote_user: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          remote_key: ${{ secrets[steps.vars.outputs.SSH_PRIVATE_KEY] }}
+          remote_port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
+
+      - name: SSH. Docker. Login to ghcr.io
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          key: ${{ secrets[steps.vars.outputs.SSH_PRIVATE_KEY] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
+          script: |
+            echo ${{ secrets.GIT_REGISTRY_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: SSH. Deploy docker stack
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          key: ${{ secrets[steps.vars.outputs.SSH_PRIVATE_KEY] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
+          script: |
+            docker stack deploy -c ${{ secrets.DOCKER_STACK_PATH }}/docker-compose.yml azerux --with-registry-auth
+            sleep 35
+
+      - name: SSH. Docker. Clean old image
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets[steps.vars.outputs.SSH_HOST] }}
+          username: ${{ secrets[steps.vars.outputs.SSH_USERNAME] }}
+          key: ${{ secrets[steps.vars.outputs.SSH_PRIVATE_KEY] }}
+          port: ${{ secrets[steps.vars.outputs.SSH_PORT] }}
+          script: |
+            echo "y" | docker system prune --all

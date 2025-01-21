@@ -1,0 +1,62 @@
+.policy {
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    &-header {
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 80px;
+  
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 20px; // Уменьшаем отступы для мобильных устройств
+      gap: 10px;
+      height: auto;
+      background-color: #2b77f6;
+  
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 32px; // Уменьшаем размер шрифта для мобильных устройств
+      font-weight: 300;
+      line-height: 40px;
+      text-align: center;
+    }
+  
+    &-text {
+      max-width: 100%;
+      padding: 0 20px; // Добавляем отступы для удобного чтения на мобильных
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 21px;
+      text-align: left;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .policy-header {
+      padding: 80px 160px;
+      font-size: 36px;
+      line-height: 44px;
+    }
+  
+    .policy-text {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .policy-header {
+      padding: 80px 320px;
+      font-size: 40px;
+      line-height: 48px;
+    }
+  
+    .policy-text {
+      max-width: 1280px;
+    }
+  }
+  

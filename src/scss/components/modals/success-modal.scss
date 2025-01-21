@@ -1,0 +1,58 @@
+.success__modal {
+  border: 0.1rem solid var(--clr-border-header);
+  border-radius: 1rem;
+  padding-top: 4rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  background: linear-gradient(
+      180deg,
+      rgba(11, 92, 228, 0),
+      rgba(11, 92, 228, 0.4) 100%
+    ),
+    rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(3rem);
+
+  &-wrapper {
+    gap: 2rem;
+  }
+
+  &-image {
+    max-width: 30rem;
+
+    @media (max-width: em(575)) {
+      max-width: 25rem;
+    }
+  }
+
+  &-title {
+    max-width: 37rem;
+  }
+
+  &-subtitle {
+    line-height: 150%;
+  }
+
+  &-text {
+    font-size: 1.6rem;
+    line-height: 150%;
+  }
+
+  &-button {
+    max-width: 23rem;
+
+    .button__arrow {
+      display: none;
+    }
+  }
+
+  .modal__close {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+  }
+
+  @media (max-width: em(575)) {
+    padding-top: 6rem;
+  }
+}

@@ -1,0 +1,94 @@
+.input {
+  border: 0.1rem solid var(--clr-input-border);
+  border-radius: 1rem;
+  background-color: var(--clr-input-bg);
+  transition: border var(--transition);
+
+  input {
+    outline: none;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    width: 100%;
+    min-height: 5rem;
+    color: var(--clr-text-dark);
+
+    &::placeholder {
+      font-size: 1.6rem;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--clr-default-435);
+      transition: color var(--transition);
+    }
+
+    @media (max-width: em(575)) {
+      min-height: 4rem;
+    }
+  }
+
+  &:focus-within {
+    border: 0.1rem solid var(--clr-text-dark);
+
+    input {
+      &::placeholder {
+        color: var(--clr-text-dark);
+      }
+    }
+  }
+}
+/* Основной контейнер для PhoneInput */
+.phone-input-container {
+  display: flex !important;
+  align-items: center !important;
+  border: 0.1rem solid var(--clr-input-border) !important;
+  border-radius: 1rem !important;
+  background-color: var(--clr-input-bg) !important;
+  transition: border var(--transition) !important;
+}
+
+/* Поле ввода */
+.phone-input-field {
+  outline: none !important;
+  border: none !important;
+  padding-right: 1.5rem !important;
+  padding-left: 7.5rem !important;
+  width: 100% !important;
+  min-height: 5rem !important;
+  color: var(--clr-text-dark) !important;
+  background-color: transparent !important;
+}
+
+/* Кнопка dropdown для выбора флага */
+.phone-input-flag-dropdown {
+  display: none !important;
+}
+
+.flag-dropdown {
+  display: none !important;
+}
+.country-list {
+  display: none !important;
+}
+
+/* Выпадающий список стран */
+.phone-input-country-list {
+  top: 100%;
+  z-index: 1000 !important;
+  overflow-y: auto !important;
+  border: 0.1rem solid var(--clr-input-border) !important;
+  border-radius: 0.5rem !important;
+  max-height: 20rem !important;
+  background-color: #121212 !important;
+}
+
+/* Стиль для каждой страны */
+.phone-input-country-list .country {
+  padding: 0.8rem 1.2rem !important;
+  color: var(--clr-text-dark) !important;
+  background-color: transparent !important;
+  transition: background-color 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+.phone-input-country-list .country:hover {
+  background-color: var(--clr-input-border) !important;
+}

@@ -1,0 +1,97 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  border-bottom: 0.1rem solid var(--clr-border-header);
+  width: 100%;
+  min-height: 7rem;
+  background-color: var(--clr-header-bg);
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    backdrop-filter: blur(6rem);
+  }
+
+  &__wrapper {
+    gap: 1rem;
+
+    @media (max-width: em(1024)) {
+      gap: 2rem;
+    }
+  }
+
+  &__navigation {
+    gap: 1rem;
+
+    @media (max-width: em(1024)) {
+      display: none;
+    }
+  }
+
+  &__phone {
+    flex-shrink: 0;
+    gap: 1rem;
+    color: var(--clr-default-450);
+    transition: color var(--transition);
+
+    &-icon {
+      svg {
+        fill: var(--clr-default-450);
+        transition: fill var(--transition);
+
+        g {
+          transition: opacity var(--transition);
+        }
+      }
+    }
+
+    @media (hover) {
+      &:hover {
+        color: var(--clr-text-dark);
+
+        .header__phone-icon {
+          svg {
+            fill: var(--clr-text-dark);
+
+            g {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__phone-mobile {
+    display: none;
+    margin-left: auto;
+    width: 2rem;
+    height: 2rem;
+
+    svg {
+      fill: var(--clr-text-dark);
+    }
+
+    @media (max-width: em(1024)) {
+      display: flex;
+    }
+  }
+
+  &__button {
+    min-width: 20rem;
+
+    @media (max-width: em(1260)) {
+      min-width: 16rem;
+    }
+  }
+
+  @media (max-width: em(1024)) {
+    min-height: 6rem;
+  }
+}

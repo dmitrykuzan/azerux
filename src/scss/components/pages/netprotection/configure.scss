@@ -1,0 +1,245 @@
+.configure {
+  position: relative;
+  z-index: 1;
+  margin-top: 9rem;
+
+  .benefits__bg {
+    left: -30rem;
+    top: 23rem;
+  }
+
+  .container {
+    max-width: 131rem;
+  }
+
+  &__wrapper {
+    gap: 4rem;
+  }
+
+  &__body {
+    gap: 2rem;
+
+    .plan-card {
+      height: auto;
+    }
+
+    @media (max-width: em(1024)) {
+      flex-direction: column;
+    }
+  }
+
+  &__options {
+    flex-shrink: 0;
+    gap: 2rem;
+    border: 0.1rem solid var(--clr-border-header);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 96rem;
+    background: linear-gradient(90deg, rgba(43, 119, 246, 0), rgba(43, 119, 246, 0.4) 100%), rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(3rem);
+
+    &-cards {
+      gap: 2rem;
+      max-width: 50rem;
+
+      @media (max-width: em(1260)) {
+        max-width: 40rem;
+      }
+
+      @media (max-width: em(1120)) {
+        max-width: 35rem;
+      }
+
+      @media (max-width: em(1024)) {
+        max-width: 45rem;
+      }
+
+      @media (max-width: em(900)) {
+        max-width: 38rem;
+      }
+
+      @media (max-width: em(767)) {
+        max-width: initial;
+      }
+    }
+
+    &-card {
+      position: relative;
+      gap: 2rem;
+      border: 0.1rem solid var(--clr-border-header);
+      border-radius: 1rem;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      transition: border var(--transition), background-color var(--transition);
+
+      &-subtitle {
+        font-size: fluid(1.6rem, 1.2rem);
+        line-height: 130%;
+      }
+
+      &-checkbox {
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+        border: 0.1rem solid var(--clr-tabs-btn);
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        background-color: var(--clr-default-405);
+        transition: border var(--transition);
+      }
+
+      &.active {
+        background-color: var(--clr-primary-400);
+
+        .configure__options-card-title,
+        .configure__options-card-subtitle {
+          color: var(--clr-default-100);
+        }
+
+        .configure__options-card-checkbox {
+          border: 0.4rem solid var(--clr-default-100);
+          background-color: var(--clr-accent-400);
+        }
+      }
+
+      @media (hover) {
+        &:hover {
+          border: 0.1rem solid var(--clr-text-dark);
+
+          .configure__options-card-checkbox {
+            border: 0.1rem solid var(--clr-text-dark);
+          }
+
+          &.active {
+            border: 0.1rem solid var(--clr-border-header);
+
+            .configure__options-card-checkbox {
+              border: 0.4rem solid var(--clr-default-100);
+              background-color: var(--clr-accent-400);
+            }
+          }
+        }
+      }
+    }
+
+    //togglers
+    &-settings {
+      gap: 2rem;
+      width: 100%;
+    }
+
+    &-toggle-wrapper {
+      gap: 1rem;
+    }
+
+    &-toggle {
+      border: 0.1rem solid var(--clr-border-header);
+      border-radius: 1rem;
+      padding: 0.4rem;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    &-button {
+      border-radius: 0.6rem;
+      width: 100%;
+      min-height: 4rem;
+      font-size: fluid(1.6rem, 1.2rem);
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--clr-default-430);
+      transition: color var(--transition), background-color var(--transition);
+
+      &.active {
+        color: var(--clr-hover-transparent-color);
+        background-color: var(--clr-hover-transparent-bg);
+      }
+
+      @media (hover) {
+        &:hover {
+          color: var(--clr-text-dark);
+
+          &.active {
+            color: var(--clr-hover-transparent-color);
+          }
+        }
+      }
+    }
+
+    //progress bar
+    &-progressbar {
+      gap: 2rem;
+
+      &-body {
+        gap: 1.5rem;
+      }
+
+      &-track {
+        position: relative;
+        width: 100%;
+        height: 0.2rem;
+        background-color: var(--clr-card-bg-400);
+      }
+
+      &-input {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1rem;
+        opacity: 0;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+
+      &-fill {
+        position: relative;
+        display: block;
+        width: 50%;
+        height: 0.2rem;
+        background-color: var(--clr-primary-400);
+
+        &::before {
+          content: '';
+          position: absolute;
+          right: -0.5rem;
+          top: 50%;
+          border-radius: 50%;
+          width: 1.2rem;
+          height: 1.2rem;
+          box-shadow: 0px 4px 34px 0px rgb(255, 123, 0), 0px 0px 24px 0px rgb(255, 123, 0),
+            0px 0px 24px 0px rgb(255, 123, 0);
+          background-color: var(--clr-accent-400);
+          transform: translateY(-50%);
+        }
+      }
+
+      &-value {
+        flex-shrink: 0;
+        min-width: 9rem;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: em(1260)) {
+      max-width: 85rem;
+    }
+
+    @media (max-width: em(1120)) {
+      max-width: 70rem;
+    }
+
+    @media (max-width: em(1024)) {
+      max-width: initial;
+    }
+
+    @media (max-width: em(767)) {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: em(1024)) {
+    margin-top: 4rem;
+  }
+}

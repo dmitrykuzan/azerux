@@ -1,0 +1,46 @@
+.benefits-list {
+  .container {
+    max-width: 131rem;
+  }
+
+  &__wrapper {
+    gap: 4rem;
+  }
+
+  &__items {
+    gap: 2rem;
+  }
+
+  &__item {
+    gap: 4rem;
+    padding-bottom: 2rem;
+
+    &:not(:last-child) {
+      border-bottom: 0.1rem solid var(--clr-default-435);
+    }
+
+    &-title {
+      min-width: 30rem;
+      font-size: fluid(3rem, 2.4rem);
+      line-height: 120%;
+
+      @media (max-width: em(1024)) {
+        min-width: initial;
+      }
+    }
+
+    &-description {
+      font-size: fluid(2rem, 1.6rem);
+      line-height: 150%;
+    }
+
+    @media (max-width: em(1024)) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  &--vdsvps {
+    margin-top: 4rem;
+  }
+}

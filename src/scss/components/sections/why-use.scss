@@ -1,0 +1,36 @@
+.why-use {
+  margin-top: 9rem;
+
+  .container {
+    max-width: 131rem;
+  }
+
+  &__wrapper {
+    gap: 4rem;
+
+    @media (max-width: em(1024)) {
+      gap: 2rem;
+    }
+  }
+
+  &__list {
+    gap: 1rem;
+
+    &-item {
+      width: 100%;
+    }
+
+    @media (max-width: em(1024)) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: em(1024)) {
+    margin-top: 6rem;
+  }
+
+  @media (max-width: em(767)) {
+    margin-top: 4rem;
+  }
+}

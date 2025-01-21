@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+    image: ghcr.io/scorps30/cyber-site:latest
+    restart: "always"
+    deploy:
+      mode: replicated
+      replicas: 2
+      placement:
+        constraints:
+          - node.role == manager
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 1
+        delay: 10s
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 15s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - cache-app:/app/.next/cache
+    networks:
+      - internal
+
+volumes:
+  cache-app:
+
+networks:
+  internal:
+    external: true

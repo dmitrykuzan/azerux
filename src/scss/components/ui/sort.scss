@@ -1,0 +1,115 @@
+.sort {
+  gap: 1.5rem;
+
+  &__label {
+    text-transform: uppercase;
+    color: var(--clr-text-dark);
+  }
+
+  &__dropdown {
+    position: relative;
+  }
+
+  &__dropdown-selected {
+    gap: 1rem;
+    border: 0.1rem solid var(--clr-border-header);
+    border-radius: 1rem;
+    padding-right: 2rem;
+    padding-left: 3rem;
+    height: max-content;
+    min-width: 16rem;
+    min-height: 5rem;
+    background-color: var(--clr-faq-bg);
+    transition: border var(--transition);
+    cursor: pointer;
+
+    @media (hover) {
+      &:hover {
+        border: 0.1rem solid var(--clr-hover-border-lang);
+      }
+    }
+  }
+
+  &__dropdown-value {
+    color: var(--clr-default-435);
+    transition: color var(--transition);
+  }
+
+  &__dropdown-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    transition: transform var(--transition);
+
+    svg {
+      fill: var(--clr-default-450);
+      transition: fill var(--transition);
+
+      g {
+        transition: opacity var(--transition);
+      }
+    }
+  }
+
+  &__dropdown-options {
+    position: absolute;
+    left: 50%;
+    top: 6rem;
+    z-index: 0;
+    gap: 0.5rem;
+    border: 0.1rem solid var(--clr-default-410);
+    border-radius: 1.2rem;
+    padding: 1rem;
+    width: 100%;
+    background-color: var(--clr-langdropdown-bg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%);
+    transition: opacity var(--transition), visibility var(--transition);
+    backdrop-filter: blur(3rem);
+  }
+
+  &__dropdown-option {
+    border: 0.1rem solid transparent;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: transparent;
+    transition: background-color var(--transition), border var(--transition);
+    cursor: pointer;
+
+    @media (hover) {
+      &:hover {
+        border: 0.1rem solid var(--clr-default-410);
+        background-color: var(--clr-default-401);
+      }
+    }
+  }
+
+  &--active {
+    .sort__dropdown-selected {
+      border: 0.1rem solid var(--clr-hover-border-lang);
+    }
+
+    .sort__dropdown-options {
+      z-index: 3;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity var(--transition), visibility var(--transition);
+    }
+
+    .sort__dropdown-value {
+      color: var(--clr-text-dark);
+    }
+
+    .sort__dropdown-icon {
+      transform: rotate(-180deg);
+
+      svg {
+        fill: var(--clr-text-dark);
+
+        g {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

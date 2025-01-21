@@ -1,0 +1,344 @@
+.solutions {
+  position: relative;
+  overflow: hidden;
+  margin-top: 7rem;
+
+  &__bg {
+    position: absolute;
+    right: -35rem;
+    top: -5rem;
+    z-index: -1;
+    width: 75.3rem;
+    height: 78.8rem;
+
+    @media (max-width: em(1024)) {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    gap: 4rem;
+  }
+
+  &__text {
+    gap: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 100rem;
+  }
+
+  &__title {
+    span {
+      font-weight: 400;
+    }
+  }
+
+  &__subtitle {
+    span {
+      font-weight: 500;
+    }
+  }
+
+  &__description {
+    font-size: fluid(2.4rem, 1.6rem);
+    line-height: 120%;
+  }
+
+  &__tabs {
+    gap: 4rem;
+  }
+
+  &__tabs-navigation {
+    margin-right: auto;
+    margin-left: auto;
+    border: 0.1rem solid var(--clr-default-light-410);
+    border-radius: 1rem;
+    padding-right: 0.4rem;
+    padding-left: 0.4rem;
+    width: max-content;
+    min-height: 5rem;
+    background-color: var(--clr-tabs-btns-bg);
+    backdrop-filter: blur(3rem);
+  }
+
+  &__tabs-button {
+    border-radius: 0.6rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    height: 4.2rem;
+    font-size: fluid(1.6rem, 1.3rem);
+    text-transform: uppercase;
+    color: var(--clr-tabs-btn);
+    transition: color var(--transition);
+
+    @media (max-width: em(460)) {
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+
+    @media (max-width: em(360)) {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+
+    @media (hover) {
+      &:hover {
+        color: var(--clr-text-dark);
+      }
+    }
+
+    &.active {
+      color: var(--clr-default-100);
+      background-color: var(--clr-primary-400);
+    }
+  }
+
+  &__tabs-list {
+    display: flex;
+    gap: 1rem;
+
+    &--ddos-protection {
+      .solutions__tabs-item {
+        .solutions__card {
+          display: flex;
+          flex-direction: column;
+
+          &-title {
+            min-height: initial;
+          }
+
+          &-bg {
+            display: none;
+          }
+
+          &-text {
+            margin-top: 17rem;
+            margin-bottom: auto;
+            height: 100%;
+
+            @media (max-width: em(1200)) {
+              padding-right: 2rem;
+              padding-left: 2rem;
+            }
+
+            @media (max-width: em(767)) {
+              margin-top: initial;
+              padding-right: initial;
+              max-width: 30rem;
+            }
+
+            @media (max-width: em(575)) {
+              max-width: 21rem;
+            }
+          }
+
+          &-image {
+            right: -6rem;
+            top: -8rem;
+
+            @media (max-width: em(767)) {
+              top: 1rem;
+              width: 25rem;
+              height: 25rem;
+            }
+
+            @media (max-width: em(575)) {
+              top: 4rem;
+            }
+
+            @media (max-width: em(420)) {
+              right: -12rem;
+            }
+
+            @media (max-width: em(360)) {
+              right: -15rem;
+            }
+          }
+
+          &-link {
+            top: initial;
+            bottom: 2rem;
+            transform: translateX(-50%);
+
+            @media (max-width: em(767)) {
+              bottom: initial;
+              margin-top: auto;
+              margin-top: 2rem;
+              margin-bottom: initial;
+              margin-bottom: 2rem;
+              transform: initial;
+            }
+          }
+
+          @media (max-width: em(1380)) {
+            max-width: 31rem;
+          }
+
+          @media (max-width: em(1200)) {
+            max-width: initial;
+          }
+        }
+      }
+
+      @media (max-width: em(1200)) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: em(767)) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &--services {
+      .solutions__tabs-item {
+        .solutions__card {
+          &-image {
+            @media (max-width: em(1380)) {
+              right: -8rem;
+              bottom: -19.5rem;
+              width: 42rem;
+              height: 42rem;
+            }
+
+            @media (max-width: em(767)) {
+              right: -15rem;
+            }
+
+            @media (max-width: em(575)) {
+              right: -18rem;
+              bottom: -3.5rem;
+            }
+
+            @media (max-width: em(440)) {
+              right: -17rem;
+              bottom: 0rem;
+              width: 33rem;
+              height: 33rem;
+            }
+          }
+
+          &-text {
+            @media (max-width: em(767)) {
+              padding-right: 2rem;
+              padding-left: 2rem;
+              max-width: 38rem;
+            }
+
+            @media (max-width: em(767)) {
+              padding-right: initial;
+              max-width: 38rem;
+            }
+
+            @media (max-width: em(575)) {
+              max-width: 22rem;
+            }
+
+            @media (max-width: em(360)) {
+              max-width: 21rem;
+            }
+          }
+        }
+      }
+
+      @media (max-width: em(1380)) {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: em(992)) {
+        gap: 1rem;
+      }
+
+      @media (max-width: em(767)) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__tabs-item {
+    &:nth-child(1) {
+      .solutions__card {
+        &::before {
+          right: 14rem;
+          top: -26rem;
+
+          @media (max-width: em(767)) {
+            right: 34rem;
+            top: -19rem;
+          }
+
+          @media (max-width: em(575)) {
+            right: 19rem;
+          }
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      .solutions__card {
+        &::before {
+          right: 19rem;
+          top: 1rem;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      .solutions__card {
+        &::before {
+          right: -28rem;
+          top: 21rem;
+
+          @media (max-width: em(767)) {
+            right: 16rem;
+            top: 14rem;
+          }
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      .solutions__card {
+        &::before {
+          right: 16rem;
+          top: 21rem;
+        }
+      }
+    }
+
+    &:nth-child(5) {
+      .solutions__card {
+        &::before {
+          right: -33rem;
+          top: -4rem;
+
+          @media (max-width: em(767)) {
+            right: 17rem;
+            top: -16rem;
+          }
+        }
+      }
+    }
+
+    &:nth-child(6) {
+      .solutions__card {
+        &::before {
+          right: 22rem;
+          top: -9rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: em(1024)) {
+    margin-top: 5rem;
+  }
+
+  @media (max-width: em(767)) {
+    margin-top: 4rem;
+  }
+}

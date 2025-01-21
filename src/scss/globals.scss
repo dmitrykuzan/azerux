@@ -1,0 +1,390 @@
+// ФУНКЦИИ====================================================================
+@import './settings/functions';
+
+// </ФУНКЦИИ>=================================================================
+
+// <Подключаем шрифты>========================================================
+@import './settings/fonts';
+
+// </Подключаем шрифты>=======================================================
+
+// <ОБНУЛЕНИЕ>================================================================
+@import './settings/normalize';
+
+// </ОБНУЛЕНИЕ>===============================================================
+
+// <ПЕРЕМЕННЫЕ>===============================================================
+$containerWidth: 160rem;
+
+:root {
+  // Base
+  --font-family: 'IBM Plex Sans', sans-serif;
+  --font-weight: 400;
+  --content-width: 157rem;
+  --container-offset: 1.5rem;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --transition: 0.3s;
+
+  // Colors
+  //---light
+  --clr-default-100: #fff;
+  // --clr-default-400: rgba(255, 255, 255, 0.4);
+  --clr-default-401: rgba(0, 0, 0, 0.01);
+  --clr-default-405: rgba(0, 0, 0, 0.05);
+  --clr-default-410: rgba(0, 0, 0, 0.1);
+  --clr-default-430: rgba(0, 0, 0, 0.3);
+  --clr-default-435: rgba(18, 18, 18, 0.3);
+  --clr-default-450: rgba(18, 18, 18, 0.5);
+  --clr-default-470: rgba(18, 18, 18, 0.7);
+  --clr-default-500: #121212;
+  --clr-default-900: #000000;
+
+  --clr-primary-300: #e3e8f7;
+  --clr-primary-400: #2b77f6;
+
+  --clr-accent-400: #ff7b00;
+  --clr-accent-500: rgb(11, 92, 228);
+  --clr-accent-550: #ff3437;
+  // --clr-accent-600: rgb(43, 119, 246);
+
+  --clr-text-dark: #121212;
+  --clr-border-header: #fff;
+
+  --clr-light-bg: #e3e8f7;
+  --clr-marquee-bg-odd: rgba(255, 255, 255, 0.1);
+  --clr-marquee-bg-even: rgba(255, 255, 255, 0.25);
+  --clr-marquee-border: rgba(255, 255, 255, 0.6);
+  --clr-border-image: rgba(0, 0, 0, 0.5);
+  --clr-tabs-btns-bg: #fff;
+  --clr-tab-btn-icon: #fff;
+  --clr-tabs-btn: rgba(18, 18, 18, 0.3);
+  --clr-tabs-btn-border: rgba(18, 18, 18);
+  --clr-input-border: #fff;
+  --clr-faq-bg: rgba(255, 255, 255, 0.3);
+  --clr-input-bg: rgba(255, 255, 255, 0.5);
+  --clr-card-bg-400: rgba(255, 255, 255, 0.3);
+  --clr-burger-bg: rgba(255, 255, 255, 0.8);
+  --clr-benefits-card-bg-odd-light: linear-gradient(90deg, rgba(43, 119, 246, 0), rgba(43, 119, 246, 0.4) 100%),
+    rgba(255, 255, 255, 0.3);
+  --clr-benefits-card-bg-even-light: linear-gradient(90deg, rgba(43, 119, 246, 0.4), rgba(43, 119, 246, 0) 100%),
+    rgba(255, 255, 255, 0.3);
+  --clr-review-card-bg: linear-gradient(180deg, rgba(43, 119, 246, 0.4), rgba(43, 119, 246, 0) 100%),
+    rgba(255, 255, 255, 0.3);
+  --clr-header-bg: rgba(255, 255, 255, 0.4);
+  --clr-mobal-bg: rgba(227, 232, 247, 0.8);
+  --clr-langdropdown-bg: rgba(255, 255, 255, 0.4);
+  //---light
+
+  //--hover
+  --clr-theme-shadow: 0px 4px 25px 0px rgba(12, 14, 21, 0.5);
+  --clr-hover-border-lang: rgba(0, 0, 0, 0.8);
+  --clr-hover-transparent-bg: #2b77f6;
+  --clr-hover-transparent-color: #fff;
+  --clr-hover-social: rgba(255, 255, 255, 0.5);
+  //--hover
+
+  //--dark
+  --clr-default-light-410: rgba(255, 255, 255, 0.1);
+  --clr-default-light-430: rgba(255, 255, 255, 0.3);
+  --clr-default-light-450: rgba(255, 255, 255, 0.5);
+  --clr-default-light-470: rgba(255, 255, 255, 0.7);
+
+  --clr-text-light: #fff;
+  --clr-dark-bg: #121212;
+}
+
+// </ПЕРЕМЕННЫЕ>==============================================================
+
+// <ОБОЛОЧКИ>================================================================
+body {
+  padding-top: 7rem;
+  font-size: 1.6rem;
+  color: var(--clr-text-dark);
+  background-color: var(--clr-light-bg);
+
+  &.lock {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    -ms-touch-action: none;
+    touch-action: none;
+    overscroll-behavior: none;
+
+    .header {
+      overflow: initial;
+    }
+  }
+
+  &.dark-mode {
+    color: var(--clr-text-light);
+    background-color: var(--clr-dark-bg);
+
+    --clr-header-bg: rgba(18, 18, 18, 0.4);
+
+    --clr-default-401: rgba(255, 255, 255, 0.05);
+    --clr-default-405: rgba(255, 255, 255, 0.05);
+    --clr-default-410: rgba(255, 255, 255, 0.1);
+    --clr-default-430: rgba(255, 255, 255, 0.3);
+    --clr-default-435: rgba(255, 255, 255, 0.3);
+    --clr-default-450: rgba(255, 255, 255, 0.5);
+    --clr-default-470: rgba(255, 255, 255, 0.7);
+
+    --clr-primary-300: #121212;
+
+    --clr-text-dark: #fff;
+
+    --clr-border-header: rgba(255, 255, 255, 0.1);
+
+    --clr-card-bg-400: rgba(255, 255, 255, 0.05);
+    --clr-marquee-bg-odd: rgba(255, 255, 255, 0.05);
+    --clr-marquee-bg-even: rgba(255, 255, 255, 0.15);
+    --clr-marquee-border: rgba(255, 255, 255, 0.1);
+    --clr-benefits-card-bg-odd-light: linear-gradient(90deg, rgba(43, 119, 246, 0), rgba(43, 119, 246, 0.4) 100%),
+      rgba(255, 255, 255, 0.05);
+    --clr-review-card-bg: linear-gradient(180deg, rgba(43, 119, 246, 0), rgba(43, 119, 246, 0.4) 100%),
+      rgba(255, 255, 255, 0.05);
+    --clr-benefits-card-bg-even-light: linear-gradient(90deg, rgba(43, 119, 246, 0.4), rgba(43, 119, 246, 0) 100%),
+      rgba(255, 255, 255, 0.05);
+    --clr-tabs-btns-bg: rgba(255, 255, 255, 0.05);
+    --clr-faq-bg: rgba(255, 255, 255, 0.05);
+    --clr-burger-bg: rgba(18, 18, 18, 0.4);
+    --clr-input-bg: transparent;
+    --clr-langdropdown-bg: rgba(255, 255, 255, 0.05);
+    --clr-mobal-bg: rgba(18, 18, 18, 0.8);
+    --clr-tab-btn-icon: rgb(43, 119, 246);
+    --clr-tabs-btn: rgba(255, 255, 255, 0.3);
+    --clr-tabs-btn-border: rgba(255, 255, 255, 0.3);
+    --clr-border-image: rgba(255, 255, 255, 0.5);
+    --clr-input-border: rgba(255, 255, 255, 0.3);
+
+    //--hover
+    --clr-hover-border-lang: rgba(255, 255, 255, 0.5);
+    --clr-hover-transparent-bg: #fff;
+    --clr-hover-transparent-color: #121212;
+    --clr-hover-social: rgba(255, 255, 255, 0.05);
+    --clr-theme-shadow: 0px 4px 25px 0px rgba(255, 123, 0, 0.5);
+
+    //--hover
+  }
+
+  @media (max-width: em(1024)) {
+    padding-top: 6rem;
+  }
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 32rem;
+  min-height: 100%;
+
+  &.no-overflow {
+    overflow: initial;
+  }
+}
+
+// </ОБОЛОЧКИ>===============================================================
+
+// <СТИЛИ>===================================================================
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--container-offset);
+  padding-left: var(--container-offset);
+  width: 100%;
+  max-width: var(--container-width);
+}
+
+// Components - UI
+@import './ui';
+@import './stack';
+@import './components/ui/typography';
+@import './components/ui/menu';
+@import './components/ui/logo';
+@import './components/ui/language';
+@import './components/ui/location';
+@import './components/ui/theme';
+@import './components/ui/button';
+@import './components/ui/burger';
+@import './components/ui/burger-menu';
+@import './components/ui/input';
+@import './components/ui/search';
+@import './components/ui/sort';
+@import './components/ui/direction';
+@import './components/ui/checkbox';
+@import './components/ui/loader-component';
+@import './components/ui/dropdown';
+// Components - UI
+
+// Components - Common
+@import './components/common/socials';
+// Components - Common
+
+// Components - Cards
+@import './components/cards/solutions-card';
+@import './components/cards/achievements-card';
+@import './components/cards/benefits-card';
+@import './components/cards/review-card';
+@import './components/cards/contact-card';
+@import './components/cards/article-card';
+@import './components/cards/why-use-card';
+@import './components/cards/plan-card';
+// Components - Cards
+
+// Components - Sections
+@import './components/sections/header';
+@import './components/sections/footer';
+@import './components/sections/benefits';
+@import './components/sections/benefits-list';
+@import './components/sections/features';
+@import './components/sections/faq';
+@import './components/sections/contacts';
+@import './components/sections/partners';
+@import './components/sections/consult';
+@import './components/sections/marquee';
+@import './components/sections/intro';
+@import './components/sections/banner';
+@import './components/sections/why-use';
+@import './components/sections/system-list';
+@import './components/sections/plans';
+// Components - Sections
+
+// Components - Modals
+@import './components/modals/modal';
+@import './components/modals/consult-modal';
+@import './components/modals/success-modal';
+// Components - Modals
+
+// Components - Common
+// Components - Common
+
+// Components - Pages
+@import './components/pages/home/hero';
+@import './components/pages/home/solutions';
+@import './components/pages/home/achievements';
+@import './components/pages/home/articles-news';
+@import './components/pages/home/reviews';
+
+@import './components/pages/service/service';
+
+@import './components/pages/blog/blog';
+@import './components/pages/blog/article-content';
+@import './components/pages/blog/interested';
+
+@import './components/pages/policy/policy';
+
+@import './components/pages/webprotection/trial';
+@import './components/pages/webprotection/how-work';
+
+@import './components/pages/netprotection/configure';
+
+@import './components/pages/hostprotection/info-slider';
+
+@import './components/pages/vds-vps/available-system';
+
+@import './components/pages/dedicated-servers/automated';
+// Components - Pages
+
+html {
+  scroll-behavior: smooth; /* Плавная прокрутка */
+}
+
+// Custom Scrollbar Styles
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: white;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-track:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.loader {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: -70px;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #121212;
+
+  &-shine {
+    position: absolute;
+
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+    background: #0b5ce4;
+
+    opacity: 0.3px;
+    filter: blur(300px);
+  }
+
+  &-logo {
+    position: relative;
+    z-index: 1;
+
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  &-loader {
+    position: relative;
+    z-index: 1;
+    animation: rotate 1.5s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.rfm-marquee-container {
+  will-change: auto !important;
+}

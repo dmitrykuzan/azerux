@@ -1,0 +1,55 @@
+.interested {
+  padding-top: 8rem;
+
+  &__wrapper {
+    gap: 4rem;
+
+    @media (max-width: em(1024)) {
+      gap: 3rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    li {
+      display: flex;
+      flex: 1;
+      height: auto;
+
+      & > div {
+        flex: 1;
+        justify-content: space-between;
+        overflow: hidden;
+        height: auto;
+      }
+    }
+
+    .article__card {
+      .article__card-info {
+        display: none;
+      }
+    }
+
+    @media (max-width: em(767)) {
+      flex-direction: column;
+      gap: 3rem;
+    }
+  }
+
+  &__back {
+    margin-right: auto;
+    margin-left: auto;
+
+    .button__arrow {
+      left: 2.7rem;
+      transform: translateY(-50%) rotate(-180deg);
+    }
+  }
+
+  @media (max-width: em(1024)) {
+    padding-top: 4rem;
+  }
+}

@@ -1,0 +1,36 @@
+.marquee {
+  position: relative;
+  z-index: 2;
+  gap: 1rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+
+  &__wrapper {
+    overflow: hidden;
+  }
+
+  &__content {
+    display: flex;
+    width: max-content;
+    box-sizing: border-box;
+    padding: 1px;
+    will-change: transform;
+  }
+
+  &__line {
+    margin-right: 1rem;
+    padding: 1rem 2rem;
+    border: 1px solid var(--clr-marquee-border);
+    border-radius: 1rem;
+    backdrop-filter: blur(3.4rem);
+  }
+
+  &__content .marquee__line:nth-child(even) {
+    background-color: var(--clr-marquee-bg-even);
+  }
+
+  &__content .marquee__line:nth-child(odd) {
+    background-color: var(--clr-marquee-bg-odd);
+  }
+}

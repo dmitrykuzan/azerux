@@ -1,0 +1,14 @@
+.systems-list {
+  .container {
+    max-width: 131rem;
+  }
+
+  &__items {
+    // justify-content: space-between;
+    gap: 1rem 9rem;
+  }
+
+  &__item {
+    max-width: 16rem;
+  }
+}

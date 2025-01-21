@@ -1,0 +1,92 @@
+.banner {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin-top: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: var(--clr-primary-400);
+
+  .container {
+    max-width: 131rem;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+    gap: 2rem;
+  }
+
+  &__title {
+    font-size: fluid(4rem, 3rem);
+    line-height: 120%;
+    color: var(--clr-default-100);
+  }
+
+  &__subtitle {
+    font-size: 2rem;
+    line-height: 150%;
+    color: var(--clr-default-100);
+  }
+
+  &__button {
+    min-height: 6.7rem;
+    max-width: 32rem;
+
+    @media (max-width: em(1024)) {
+      min-height: 6rem;
+    }
+
+    @media (max-width: em(575)) {
+      max-width: initial;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 6rem;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+
+    @media (max-width: em(1680)) {
+      right: 0;
+    }
+
+    @media (max-width: em(1360)) {
+      display: none;
+    }
+
+    @media (max-width: em(1024)) {
+      position: relative;
+      right: initial;
+      top: initial;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 40rem;
+      transform: initial;
+    }
+
+    @media (max-width: em(575)) {
+      max-width: 30rem;
+    }
+  }
+
+  &__image-decor {
+    position: absolute;
+    right: -9rem;
+    top: -32rem;
+    z-index: 0;
+
+    @media (max-width: em(1680)) {
+      display: none;
+    }
+  }
+
+  @media (max-width: em(1024)) {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}

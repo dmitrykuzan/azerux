@@ -1,0 +1,146 @@
+.plan-card {
+  position: relative;
+  gap: 2rem;
+  border: 0.1rem solid var(--clr-border-header);
+  border-radius: 1rem;
+  padding-top: 4rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(43, 119, 246, 0), rgba(43, 119, 246, 0.3) 100%), rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(3rem);
+
+  &__top {
+    position: relative;
+    z-index: 1;
+    gap: 0.5rem;
+    overflow: hidden;
+    border: 0.1rem solid var(--clr-marquee-border);
+    border-radius: 1rem;
+    padding: 1rem;
+
+    &--normal {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    &--medium {
+      color: var(--clr-default-900);
+      background-color: var(--clr-default-100);
+    }
+
+    &--premium {
+      color: var(--clr-default-100);
+      background-color: var(--clr-primary-400);
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -10rem;
+        bottom: -5rem;
+        z-index: -1;
+        width: 19rem;
+        height: 20rem;
+        background-image: url('/img/ui/u_premium-decor.svg');
+      }
+    }
+
+    &--enterprise {
+      color: var(--clr-default-100);
+      background-color: var(--clr-accent-400);
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -2rem;
+        bottom: -15rem;
+        z-index: -1;
+        width: 31rem;
+        height: 33rem;
+        background-image: url('/img/ui/u_enterprise-decor.svg');
+      }
+    }
+  }
+
+  &__tarif {
+    font-size: 2rem;
+    line-height: 100%;
+  }
+
+  &__price {
+    font-size: 4rem;
+    line-height: 94%;
+  }
+
+  &__period {
+    font-size: 1.2rem;
+    line-height: 100%;
+  }
+
+  &__list {
+    gap: 1rem;
+  }
+
+  &__features {
+    gap: 1rem;
+    border: 0.1rem solid var(--clr-border-header);
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: var(--clr-card-bg-400);
+
+    &-title {
+      font-size: 1.2rem;
+
+      span {
+        font-weight: 500;
+      }
+    }
+
+    &-list {
+      gap: 1rem;
+    }
+  }
+
+  &__item {
+    gap: 1rem;
+
+    &-text {
+      span {
+        font-weight: 500;
+      }
+    }
+
+    .icon {
+      flex-shrink: 0;
+      border-radius: 50%;
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: var(--clr-primary-400);
+    }
+  }
+
+  &__button {
+    margin-top: auto;
+
+    @media (max-width: em(575)) {
+      max-width: initial;
+    }
+  }
+
+  .label {
+    position: absolute;
+    right: 2rem;
+    top: 0;
+    gap: 1rem;
+    border-radius: 0 0 1rem 1rem;
+    padding-top: 0.4rem;
+    padding-right: 1.7rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.7rem;
+    width: max-content;
+    font-size: 1.6rem;
+    color: var(--clr-default-100);
+    background-color: var(--clr-accent-400);
+  }
+}

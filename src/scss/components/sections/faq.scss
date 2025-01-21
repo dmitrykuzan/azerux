@@ -1,0 +1,222 @@
+.faq {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding-top: 8rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -2rem;
+    z-index: -1;
+    width: 65rem;
+    height: 29rem;
+    background-color: var(--clr-accent-500);
+    opacity: 0.6;
+    filter: blur(300px);
+    transform: translateX(-50%);
+  }
+
+  &__wrapper {
+    gap: 8rem;
+
+    @media (max-width: em(1600)) {
+      gap: 4rem;
+    }
+  }
+
+  &__body {
+    position: relative;
+    overflow: hidden;
+    border: 0.1rem solid var(--clr-border-header);
+    border-radius: 1rem;
+    padding-top: 4rem;
+    padding-right: 6rem;
+    padding-bottom: 4rem;
+    padding-left: 6rem;
+    background-color: var(--clr-faq-bg);
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: -24rem;
+      bottom: -44rem;
+      z-index: -1;
+      width: 57.8rem;
+      height: 57.8rem;
+      background-color: var(--clr-accent-500);
+      filter: blur(30rem);
+    }
+
+    &-desktop {
+      gap: 6rem;
+
+      &-btn {
+        gap: 1rem;
+        border: 0.1rem solid transparent;
+        border-radius: 1rem;
+        padding-top: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 2rem;
+        width: 100%;
+        min-height: 5rem;
+        font-weight: 300;
+        font-size: 2.4rem;
+        line-height: 120%;
+        color: var(--clr-default-470);
+        transition: color var(--transition), border var(--transition);
+
+        .icon {
+          flex-shrink: 0;
+          border-radius: 0.4rem;
+          width: 4.3rem;
+          height: 4.3rem;
+          background-color: var(--clr-tab-btn-icon);
+          opacity: 0;
+          transition: opacity var(--transition);
+        }
+
+        &.active {
+          border: 0.1rem solid var(--clr-tabs-btn-border);
+          color: var(--clr-text-dark);
+
+          .icon {
+            opacity: 1;
+            transition: opacity var(--transition);
+          }
+        }
+
+        @media (hover) {
+          &:hover {
+            color: var(--clr-text-dark);
+          }
+        }
+      }
+
+      &-btns {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 70rem;
+
+        @media (max-width: em(1460)) {
+          max-width: 55rem;
+        }
+
+        @media (max-width: em(1200)) {
+          max-width: 50rem;
+        }
+      }
+
+      &-answer {
+        gap: 4rem;
+
+        &-title {
+          font-size: 3.1rem;
+        }
+
+        &-description {
+          font-size: 2rem;
+          line-height: 150%;
+        }
+      }
+
+      &-consult-btn {
+        margin-left: auto;
+        max-width: 32rem;
+      }
+
+      @media (max-width: em(1200)) {
+        gap: 3rem;
+      }
+    }
+
+    &-mobile {
+      gap: 1rem;
+
+      &-item {
+        gap: 1rem;
+      }
+
+      &-btn {
+        gap: 1rem;
+        border: 0.1rem solid transparent;
+        border-radius: 1rem;
+        padding-top: 0.85rem;
+        padding-right: 0.6rem;
+        padding-bottom: 0.85rem;
+        padding-left: 3rem;
+        color: var(--clr-default-470);
+
+        .icon {
+          flex-shrink: 0;
+          border-radius: 0.4rem;
+          width: 4rem;
+          height: 4rem;
+          fill: var(--clr-default-450);
+        }
+
+        &.active {
+          border: 0.1rem solid var(--clr-tabs-btn-border);
+          color: var(--clr-text-dark);
+
+          .icon {
+            background-color: var(--clr-accent-500);
+            transition: background-color var(--transition);
+
+            svg {
+              fill: var(--clr-default-100);
+              transform: rotate(180deg);
+              transition: transform var(--transition);
+            }
+          }
+        }
+
+        @media (max-width: em(360)) {
+          padding-left: 1rem;
+        }
+      }
+
+      &-answer {
+        gap: 1rem;
+      }
+
+      &-description {
+        font-size: fluid(1.6rem, 1.2rem);
+        line-height: 150%;
+      }
+
+      &-consult-btn {
+        margin-top: 2rem;
+        width: 100%;
+        max-width: initial;
+      }
+    }
+
+    @media (max-width: em(1460)) {
+      padding-right: 3rem;
+      padding-left: 3rem;
+    }
+
+    @media (max-width: em(767)) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    @media (max-width: em(575)) {
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
+  &--nolight {
+    &::before {
+      display: none;
+    }
+  }
+
+  @media (max-width: em(1600)) {
+    padding-top: 4rem;
+  }
+}

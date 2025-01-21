@@ -1,0 +1,39 @@
+.contacts {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+
+  &__wrapper {
+    gap: 4rem;
+  }
+
+  &__text {
+    gap: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 78rem;
+  }
+
+  &__description {
+    font-size: fluid(2rem, 1.6rem);
+    line-height: 120%;
+  }
+
+  &__list {
+    display: flex;
+    gap: 3rem;
+
+    @media (max-width: em(1024)) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    }
+
+    @media (max-width: em(1260)) {
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: em(1024)) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}

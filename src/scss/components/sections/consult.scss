@@ -1,0 +1,173 @@
+.consult {
+  margin-top: 8rem;
+
+  &__wrapper {
+    position: relative;
+    gap: 4rem;
+    overflow: hidden;
+    border: 0.1rem solid var(--clr-border-header);
+    border-radius: 1rem;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    background-color: var(--clr-faq-bg);
+    backdrop-filter: blur(3.4rem);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -73rem;
+      top: 10rem;
+      z-index: -1;
+      width: 130rem;
+      height: 130rem;
+      background-color: var(--clr-accent-500);
+      filter: blur(30rem);
+
+      @media (max-width: em(1024)) {
+        left: -115rem;
+      }
+
+      @media (max-width: em(767)) {
+        left: initial;
+        right: -115rem;
+      }
+    }
+
+    @media (max-width: em(1024)) {
+      gap: 55rem;
+    }
+
+    @media (max-width: em(767)) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    @media (max-width: em(575)) {
+      gap: 33rem;
+    }
+  }
+
+  &__form-wrapper {
+    z-index: 1;
+    gap: 2rem;
+    margin-left: auto;
+    padding-right: 8rem;
+    max-width: 71.5rem;
+
+    @media (max-width: em(1460)) {
+      padding-right: 3rem;
+    }
+
+    @media (max-width: em(1360)) {
+      max-width: 65rem;
+    }
+
+    @media (max-width: em(1280)) {
+      max-width: 55rem;
+    }
+
+    @media (max-width: em(1024)) {
+      padding-right: 2rem;
+      padding-left: 2rem;
+      max-width: initial;
+    }
+  }
+
+  &__form {
+    gap: 1rem;
+
+    &-title {
+      font-size: fluid(3.1rem, 2rem);
+
+      @media (max-width: em(575)) {
+        text-align: center;
+      }
+    }
+
+    &-text {
+      font-size: fluid(2rem, 1.2rem);
+      line-height: 150%;
+
+      @media (max-width: em(575)) {
+        text-align: center;
+      }
+    }
+
+    &-fields {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+
+      @media (max-width: em(575)) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &-submit {
+      width: 100%;
+      max-width: initial;
+    }
+
+    .checkbox {
+      @media (max-width: em(1320)) {
+        margin-top: 1rem;
+      }
+
+      @media (max-width: em(395)) {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+  &__bottom {
+    gap: 3rem;
+
+    @media (max-width: em(1024)) {
+      gap: 1rem;
+    }
+  }
+
+  &__bottom-text {
+    font-size: fluid(1.6rem, 1.2rem);
+  }
+
+  &__image {
+    position: absolute;
+    left: 9rem;
+    top: 3rem;
+    width: 61rem;
+
+    @media (max-width: em(1460)) {
+      left: 0;
+    }
+
+    @media (max-width: em(1280)) {
+      left: -20rem;
+    }
+
+    @media (max-width: em(1024)) {
+      left: 50%;
+      top: 40rem;
+      width: 50rem;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: em(767)) {
+      top: 36rem;
+    }
+
+    @media (max-width: em(575)) {
+      top: 45rem;
+      width: 30rem;
+    }
+
+    @media (max-width: em(390)) {
+      top: 48rem;
+    }
+  }
+
+  @media (max-width: em(1024)) {
+    margin-top: 4rem;
+  }
+}

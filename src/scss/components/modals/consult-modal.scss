@@ -1,0 +1,59 @@
+.consult__modal {
+  position: relative;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+
+  .modal__close {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    z-index: 1;
+  }
+
+  .consult {
+    margin-top: initial;
+
+    .container {
+      padding: initial;
+    }
+
+    .consult__wrapper {
+      @media (max-width: em(1680)) {
+        padding-top: 4rem;
+        padding-right: 2rem;
+        padding-bottom: 2rem;
+        padding-left: 2rem;
+
+        &::before {
+          top: 60rem;
+        }
+      }
+    }
+
+    .consult__form-wrapper {
+      @media (max-width: em(1680)) {
+        padding-right: initial;
+        padding-left: initial;
+      }
+    }
+
+    .consult__image {
+      @media (max-width: em(1680)) {
+        display: none;
+      }
+    }
+
+    .consult__bottom {
+      @media (max-width: em(1680)) {
+        display: none;
+      }
+    }
+
+    .checkbox {
+      @media (max-width: em(410)) {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.direction {
+  border: 0.1rem solid var(--clr-border-header);
+  border-radius: 1rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--clr-faq-bg);
+  transition: border var(--transition);
+
+  &__icon {
+    svg {
+      fill: var(--clr-default-450);
+      transition: fill var(--transition);
+    }
+  }
+
+  @media (hover) {
+    &:hover {
+      border: 0.1rem solid var(--clr-hover-border-lang);
+    }
+  }
+}

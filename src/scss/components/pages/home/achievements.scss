@@ -1,0 +1,76 @@
+.achievements {
+  position: relative;
+  overflow: hidden;
+  margin-top: 8rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background-color: var(--clr-primary-400);
+
+  &__decor {
+    position: absolute;
+    right: -19rem;
+    bottom: -12rem;
+
+    @media (max-width: em(1680)) {
+      right: -41rem;
+    }
+
+    @media (max-width: em(1200)) {
+      right: -53rem;
+    }
+
+    @media (max-width: em(767)) {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    gap: 4rem;
+
+    @media (max-width: em(767)) {
+      gap: 3rem;
+    }
+  }
+
+  &__text {
+    gap: 2rem;
+    color: var(--clr-default-100);
+
+    @media (max-width: em(767)) {
+      gap: 1rem;
+    }
+  }
+
+  &__title {
+    font-size: fluid(2rem, 1.6rem);
+    line-height: 120%;
+
+    span {
+      font-weight: 400;
+    }
+  }
+
+  &__subtitle {
+    span {
+      font-weight: 500;
+    }
+  }
+
+  &__list {
+    z-index: 1;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: em(767)) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: em(767)) {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}

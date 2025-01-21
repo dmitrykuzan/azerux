@@ -1,0 +1,20 @@
+.contact__card {
+  border: 0.1rem solid transparent;
+  border-radius: 1rem;
+  padding-top: 0.5rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  transition: background-color var(--transition), border var(--transition);
+
+  &-link {
+    gap: 1rem;
+  }
+
+  @media (hover) {
+    &:hover {
+      border: 0.1rem solid var(--clr-border-header);
+      background-color: var(--clr-hover-social);
+    }
+  }
+}

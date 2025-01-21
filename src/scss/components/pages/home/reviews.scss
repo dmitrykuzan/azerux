@@ -1,0 +1,76 @@
+.reviews {
+  padding-top: 8rem;
+
+  &__wrapper {
+    gap: 4rem;
+  }
+
+  &__slider {
+    .swiper {
+      // padding-top: 4rem;
+    }
+
+    @media (max-width: em(575)) {
+      margin-left: -1.5rem;
+      width: calc(100% + 3rem);
+    }
+  }
+
+  &__navigation {
+    position: relative;
+    margin-top: 4rem;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 40rem;
+
+    &-button {
+      height: 2rem;
+      transition: opacity var(--transition);
+
+      &.swiper-button-disabled {
+        opacity: 0.3;
+        transition: opacity var(--transition);
+        pointer-events: none;
+      }
+    }
+
+    .reviews-prev {
+      transform: rotate(-180deg);
+    }
+
+    @media (max-width: em(575)) {
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+      max-width: initial;
+    }
+  }
+
+  &__pagination {
+    left: 50% !important;
+    top: 50% !important;
+    width: 31rem !important;
+    background: initial;
+    transform: translate(-50%, -50%) !important;
+
+    .swiper-pagination-progressbar-fill {
+      background-color: var(--clr-primary-400) !important;
+    }
+
+    @media (max-width: em(575)) {
+      width: 72% !important;
+    }
+  }
+
+  .swiper-pagination-progressbar {
+    background: initial !important;
+    background-color: var(--clr-default-405) !important;
+  }
+
+  @media (max-width: em(1024)) {
+    padding-top: 4rem;
+  }
+
+  @media (max-width: em(575)) {
+    padding-top: initial;
+  }
+}

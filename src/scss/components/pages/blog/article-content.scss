@@ -1,0 +1,128 @@
+.article {
+  .container {
+    max-width: 131rem;
+  }
+}
+
+.article-content {
+  &__top {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background-color: var(--clr-primary-400);
+
+    &-text {
+      gap: 2rem;
+      color: var(--clr-default-100);
+    }
+
+    @media (max-width: em(1024)) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  &__wrapper {
+    gap: 4rem;
+    padding-top: 8rem;
+
+    @media (max-width: em(1024)) {
+      padding-top: 4rem;
+    }
+
+    @media (max-width: em(767)) {
+      gap: 2rem;
+    }
+  }
+
+  &__image {
+    margin-right: auto;
+    margin-left: auto;
+    border: 0.1rem solid var(--clr-default-450);
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 128rem;
+    object-fit: fill;
+    min-height: 50rem;
+
+    @media (max-width: em(1075)) {
+      min-height: 40rem;
+    }
+
+    @media (max-width: em(875)) {
+      min-height: 30rem;
+    }
+
+    @media (max-width: em(575)) {
+      min-height: 20rem;
+    }
+  }
+
+  &__description {
+    font-size: 2rem;
+    line-height: 150%;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    h3 {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__list-wrapper {
+    gap: 1.5rem;
+
+    @media (max-width: em(767)) {
+      gap: 1rem;
+    }
+  }
+
+  &__list-title {
+    font-size: 2.4rem;
+  }
+
+  &__list-description {
+    font-size: 2rem;
+    line-height: 150%;
+  }
+
+  &__list {
+    list-style: numeric;
+    padding-left: 2rem;
+
+    li {
+      p {
+        font-size: 2rem;
+        line-height: 150%;
+
+        span {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  &__сonclusion {
+    gap: 4rem;
+
+    &-title {
+      font-size: 2.4rem;
+      line-height: 120%;
+    }
+
+    &-description {
+      font-size: 2rem;
+      line-height: 150%;
+    }
+
+    @media (max-width: em(767)) {
+      gap: 2rem;
+    }
+  }
+}

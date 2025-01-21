@@ -1,0 +1,49 @@
+.partners {
+  position: relative;
+  overflow-x: clip;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+
+  &__decor-bg {
+    position: absolute;
+    right: -35rem;
+    bottom: 0;
+    z-index: -1;
+    width: 75rem;
+
+    @media (max-width: em(1024)) {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    gap: 4rem;
+
+    @media (max-width: em(1024)) {
+      gap: 2rem;
+    }
+  }
+
+  &__list {
+    overflow-x: auto;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: none;
+
+    &-image {
+      max-width: 14rem;
+    }
+
+    @media (max-width: em(1600)) {
+      margin-left: -1.5rem;
+      width: calc(100% + 3rem);
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  @media (max-width: em(1024)) {
+    padding-top: 4rem;
+  }
+}

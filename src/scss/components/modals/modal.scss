@@ -1,0 +1,58 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-mobal-bg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+
+  &__content {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  &__close {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border: 1rem;
+      width: 100%;
+      height: 0.2rem;
+      background-color: var(--clr-text-dark);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    &::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+
+    .modal__content {
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+  }
+}
